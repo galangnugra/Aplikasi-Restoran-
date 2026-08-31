@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplikasi Restoran Digital</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Restoran Lezat Rasa</h1>
+    <p>Pilih menu favorit Anda dan pesan secara instan</p>
+  </header>
+
+  <div class="container">
+    <!-- PANEL KIRI: MENU MAKANAN -->
+    <main>
+      <!-- 1. Kategori Makanan -->
+      <div class="category-container">
+        <button class="btn-category active" onclick="filterCategory('semua', event)">Semua</button>
+        <button class="btn-category" onclick="filterCategory('makanan', event)">Makanan</button>
+        <button class="btn-category" onclick="filterCategory('minuman', event)">Minuman</button>
+        <button class="btn-category" onclick="filterCategory('camilan', event)">Camilan</button>
+      </div>
+
+      <!-- 2. Daftar Menu -->
+      <div class="menu-grid" id="menu-container">
+        <!-- Render otomatis via JavaScript -->
+      </div>
+    </main>
+
+    <!-- PANEL KANAN: PESANAN & KERANJANG -->
+    <aside class="cart-panel">
+      <h2>Ringkasan Pesanan</h2>
+
+      <!-- Input Nama Pelanggan -->
+      <div class="input-group">
+        <label for="customer-name">Nama Pelanggan:</label>
+        <input type="text" id="customer-name" placeholder="Masukkan nama Anda...">
+      </div>
+
+      <!-- Input Nomor Meja (Tambahan) -->
+      <div class="input-group">
+        <label for="table-number">Nomor Meja:</label>
+        <input type="number" id="table-number" placeholder="Contoh: 05">
+      </div>
+
+      <!-- Input Catatan Tambahan (Tambahan) -->
+      <div class="input-group">
+        <label for="order-note">Catatan Tambahan:</label>
+        <textarea id="order-note" placeholder="Contoh: Nasi goreng tidak pedas, es teh sedikit gula..."></textarea>
+      </div>
+
+      <!-- Daftar Menu di Keranjang -->
+      <ul class="cart-items" id="cart-items-list">
+        <li class="empty-cart-text">Keranjang masih kosong.</li>
+      </ul>
+
+      <!-- Hitung Total -->
+      <div class="total-section">
+        <span>Total:</span>
+        <span id="total-price">Rp 0</span>
+      </div>
+
+      <button class="btn-checkout" onclick="processOrder()">Proses Pesanan</button>
+
+      <!-- Tampilan Struk / Pesanan Selesai -->
+      <div class="receipt" id="receipt-panel">
+        <h3>Struk Pesanan</h3>
+        <div class="receipt-detail" id="receipt-content"></div>
+      </div>
+    </aside>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
